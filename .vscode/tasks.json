@@ -1,0 +1,32 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Solve with Python",
+      "type": "shell",
+      "command": "onchange -ik ${file} ${fileDirname}/input.txt -- sh -c 'clear; python run.py ${file} < ${fileDirname}/input.txt'",
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Create files",
+      "type": "shell",
+      "command": "mkdir ${input:day}; touch ${input:day}/input.txt; cp template.py ${input:day}/a.py; cp template.py ${input:day}/b.py; code ${input:day}/a.py",
+      "problemMatcher": [],
+      "group": "build"
+    }
+  ],
+  "inputs": [
+    {
+      "id": "day",
+      "type": "promptString",
+      "description": "Day e.g. 01",
+      "default": "01"
+    }
+  ]
+}
