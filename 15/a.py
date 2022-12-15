@@ -32,10 +32,8 @@ def solve(lines):
 
     print(len(ans))
 
-
 def cover(coord, s, dist):
     (x, y) = coord
     (sx, sy) = s
 
     return abs(sx - x) + abs(sy - y) <= dist
-
